@@ -17,7 +17,7 @@ from deblue import deblue
 from quicksort import *
 
 # args
-input_path = './input/your file'
+input_path = './input/IMG_2740.JPG'
 output_path = './output' 
 
 np.random.seed(1)
@@ -258,7 +258,7 @@ if __name__ == '__main__':
             now = now[int((H-h0)/2):int((H-h0)/2)+h0, int((W-w0)/2):int((W-w0)/2)+w0]       
             result = np.minimum(now,result)           
             if process_visible == True:
-                cv2.imshow('step', result)
+                #cv2.imshow('step', result)
                 cv2.waitKey(1)   
 
             step += 1
@@ -303,7 +303,7 @@ if __name__ == '__main__':
         edge = HistogramEqualization(edge)
 
     cv2.imwrite(output_path + '/edge.jpg', edge)
-    cv2.imshow("edge",edge)
+    #cv2.imshow("edge",edge)
 
 
     ############# merge #############
@@ -319,7 +319,7 @@ if __name__ == '__main__':
 
     cv2.imwrite(output_path + '/result.jpg', result)
     # cv2.imwrite(output_path + "/process/{0:04d}.png".format(step+1), result)
-    cv2.imshow("result",result)
+    #cv2.imshow("result",result)
 
     
     # deblue
@@ -332,6 +332,6 @@ if __name__ == '__main__':
     img_yuv[:,:,0] = result
     img_rgb = cv2.cvtColor(img_yuv, cv2.COLOR_YUV2BGR) 
 
-    cv2.imshow("RGB",img_rgb)
-    cv2.waitKey(0)
+    #cv2.imshow("RGB",img_rgb)
+    #cv2.waitKey(0)
     cv2.imwrite(output_path + "/result_RGB.jpg",img_rgb)
